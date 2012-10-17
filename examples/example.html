@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Example :: jQuery Ajax Spinner</title>
+	<link rel="Stylesheet" type="text/css" href="jPicker/css/jpicker-1.1.6.min.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../src/jquery.ajax-spinner-0.9.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		body {
+			margin: 20px;
+			font-family: Avenir, 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+		}
+		h1 {
+			margin-bottom: 20px;
+			padding-bottom: 5px;
+			color: #333;
+			border-bottom: 1px solid #aaa;
+		}
+		input, textarea {
+			padding: 2px 3px;
+			width: 400px;
+			border: 1px solid #aaa;
+		}
+		textarea {
+			height: 80px;
+		}
+		#results {
+			height: 150px;
+		}
+		.row {
+			margin-bottom: 20px;
+		}
+		.row label {
+			display: block;
+			float: left;
+			padding-right: 10px;
+			width: 120px;
+			text-align: right;
+		}
+		#manual {
+			margin-left: 130px;
+		}
+	</style>
+</head>
+
+<body>
+	
+<div id="wrapper">
+	
+	<h1 id="title">jQuery Ajax Spinner</h1>
+
+	<div class="row">
+		<label for="autoSpinner">autoSpinner: </label>
+		<input id="autoSpinner" name="autoSpinner" type="checkbox" checked/>
+	</div>
+	
+	<div class="row">
+		<label for="html">html: </label>
+		<textarea id="html" name="html"/><div style="position:absolute;top:0;left:0;width:100%;height:##winHeight##px;background:##bgcolor## url(##image##) no-repeat center center;-moz-opacity:##opacity##;filter:alpha(opacity=##opacityIE##);opacity:##opacity##;"></div></textarea>
+	</div>
+	
+	<div class="row">
+		<label for="image">image: </label>
+		<input id="image" name="image" type="text" value="images/ajax-spinner.gif"/>
+	</div>
+	
+	<div class="row">
+		<label for="opacity">opacity: </label>
+		<select id="opacity" name="opacity">
+			<option value="0.0">0.0</option>
+			<option value="0.1">0.1</option>
+			<option value="0.2">0.2</option>
+			<option value="0.3">0.3</option>
+			<option value="0.4">0.4</option>
+			<option value="0.5">0.5</option>
+			<option value="0.6">0.6</option>
+			<option value="0.7" selected>0.7</option>
+			<option value="0.8">0.8</option>
+			<option value="0.9">0.9</option>
+			<option value="1.0">1.0</option>
+		</select>
+	</div>
+
+	<div class="row">
+		<label>bgcolor: #</label>
+		<input id="bgcolor" name="bgcolor" type="text" value="000000"/>
+	</div>
+	
+	<div class="row">
+		<label for="delay">delay (milliseconds): </label>
+		<input id="delay" name="delay" type="text" value="250"/>
+	</div>
+	
+	<div class="row">
+		<button id="manual">Manually Start Spinner</button>
+		<button id="ajax">Ajax (@instantfiction)</button>
+	</div>
+		
+	<div class="row">
+		<label for="results">Ajax Reults: </label>
+		<textarea id="results" name="results"/></textarea>
+	</div>
+		
+</div>
+		
+<script type="text/javascript">
+
+	AjaxTest = {
+     
+		user:      'instantfiction',
+		numTweets: 40,
+		spinner:   new $.spinner(),
+
+		init: function() {
+			$("#manual").click(AjaxTest.manualSpinner);
+			$("#ajax").click(AjaxTest.loadTweets);
+		},
+
+		manualSpinner: function() {
+			AjaxTest.setOptions();
+
+			AjaxTest.spinner.start();
+
+			var tId = setTimeout(function () {
+				AjaxTest.spinner.stop();
+				clearTimeout(tId);
+			}, 3000);
+		},
+
+		loadTweets: function() {
+			AjaxTest.setOptions();
+
+			$('#results').val("");
+
+			$.ajax({
+				url: 'http://api.twitter.com/1/statuses/user_timeline.json/',
+				type: 'GET',
+				dataType: 'jsonp',
+				data: {
+					screen_name: "instantfiction",
+					include_rts: true,
+					count: 50,
+					include_entities: true
+				},
+				success: function(data, textStatus, xhr) {
+					for (var i = 0; i < data.length; i++) {
+						$('#results').val( $('#results').val() + data[i].text + "\n\n" );
+					}
+				}
+			});
+		},
+
+		setOptions: function() {
+			var settings = AjaxTest.spinner.settings;
+			settings.autoSpinner = $('#autoSpinner').is(':checked'),
+			settings.html = $('#html').val(),
+			settings.image.src = $('#image').val(),
+			settings.opacity = $('#opacity').val(),
+			settings.bgcolor = "#" + $('#bgcolor').val(),
+			settings.delay = $('#delay').val()
+		}
+
+	}
+
+	AjaxTest.init();
+
+</script>
+	
+</body>
+</html>
