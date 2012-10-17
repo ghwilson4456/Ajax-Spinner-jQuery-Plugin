@@ -16,7 +16,7 @@ Ajax Spinner jQuery Plugin is a jQuery plugin for displaying a standard spinner 
 
 ##Usage
 
-Designed to display a spinner with transparent background over the body of your HTML, Ajax Spinner jQuery Plugin will automatically display the spinner on any jQuery call or manually if needed.
+Designed to display a spinner with transparent background over the body of your HTML, Ajax Spinner jQuery Plugin will automatically display the spinner on any jQuery call, or manually if needed.
 
 Here is an minimal example:
 
