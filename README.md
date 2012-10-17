@@ -50,6 +50,8 @@ The default options are as follow:
 }
 </pre>
 
+* autoSpinner:
+
 Here is an example that manually starts and stops the spinner:
 
 <pre>
