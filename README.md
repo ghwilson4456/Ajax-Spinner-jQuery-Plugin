@@ -28,12 +28,12 @@ Here is another example that shows the available options for instantiating the s
 
 <pre>
 spinner = new $.spinner({
-    autoSpinner: false,
-    html: '&lt;div class="spinner">&lt;/div>',
-    image: '/images/ajax-spinner.gif',
-    opacity: 0.7,
-    bgcolor: '#fff',
-    delay: 300
+	autoSpinner: false,
+	html: '&lt;div class="spinner">&lt;/div>',
+	image: '/images/ajax-spinner.gif',
+	opacity: 0.7,
+	bgcolor: '#fff',
+	delay: 300
 });
 </pre>
 
@@ -41,12 +41,12 @@ The default options are as follow:
 
 <pre>
 {
-    autoSpinner: true,
-    html: '&lt;div style="position:absolute;top:0;left:0;width:100%;height:##winHeight##px;background:##bgcolor## url(##image##) no-repeat center center;-moz-opacity:##opacity##;filter:alpha(opacity=##opacityIE##);opacity:##opacity##;">&lt;/div>',
-    image: '',
-    opacity: 0.5,
-    bgcolor: '#000',
-    delay: 500
+	autoSpinner: true,
+	html: '&lt;div style="position:absolute;top:0;left:0;width:100%;height:##winHeight##px;background:##bgcolor## url(##image##) no-repeat center center;-moz-opacity:##opacity##;filter:alpha(opacity=##opacityIE##);opacity:##opacity##;">&lt;/div>',
+	image: '',
+	opacity: 0.5,
+	bgcolor: '#000',
+	delay: 500
 }
 </pre>
 
