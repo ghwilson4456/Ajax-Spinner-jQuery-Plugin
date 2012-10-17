@@ -28,6 +28,7 @@ Here is another example that shows the available options for instantiating the s
 
 <pre>
 spinner = new $.spinner({
+    autoSpinner: false,
     html: '&lt;div class="spinner">&lt;/div>',
     image: '/images/ajax-spinner.gif',
     opacity: 0.7,
@@ -40,6 +41,7 @@ The default options are as follow:
 
 <pre>
 {
+    autoSpinner: true,
     html: '&lt;div style="position:absolute;top:0;left:0;width:100%;height:##winHeight##px;background:#000 url(##image##) no-repeat center center;-moz-opacity:##opacity##;filter:alpha(opacity=##opacityIE##);opacity:##opacity##;">&lt;/div>',
     image: '',
     opacity: 0.5,
@@ -51,7 +53,7 @@ The default options are as follow:
 Here is an example that manually starts and stops the spinner:
 
 <pre>
-spinner = new $.spinner();
+spinner = new $.spinner({autoSpinner: false});
 
 spinner.start();
 spinner.stop();
