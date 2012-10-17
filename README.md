@@ -50,12 +50,12 @@ The default options are as follow:
 }
 </pre>
 
-* *autoSpinner*: setting this to false will stop the spinner from showing during jQuery Ajax calls. When set to true, the spinner will display on any jQuery Ajax call automatically.
-* *html*: you can define any HTML markup to use for the spinner display. There are four variables that are dynamically replaced: winHeight, bgcolor, image and opacity. The values must be surround by double-hash marks.
-* *image*: this is the path to your image that will be displayed as a spinner animation.
-* *opacity*: this is the opacity value for the background color of your HTML block. The accepted values for opacity are from 0 (completely transparent) to 1 (completely opaque). For example, a value of 0.5 would be 50% transparent.
-* *bgcolor*: the background color in hexidecimal format.
-* *delay*: the delay value represents the time between when the Ajax method is called and the spinner displays. Setting a small delay can prevent the spinner from displaying and disappearing quickly.
+* **autoSpinner**: setting this to false will stop the spinner from showing during jQuery Ajax calls. When set to true, the spinner will display on any jQuery Ajax call automatically.
+* **html**: you can define any HTML markup to use for the spinner display. There are four variables that are dynamically replaced: winHeight, bgcolor, image and opacity. The values must be surround by double-hash marks.
+* **image**: this is the path to your image that will be displayed as a spinner animation.
+* **opacity**: this is the opacity value for the background color of your HTML block. The accepted values for opacity are from 0 (completely transparent) to 1 (completely opaque). For example, a value of 0.5 would be 50% transparent.
+* **bgcolor**: the background color in hexidecimal format.
+* **delay**: the delay value represents the time between when the Ajax method is called and the spinner displays. Setting a small delay can prevent the spinner from displaying and disappearing quickly.
 
 Here is an example that manually starts and stops the spinner:
 
