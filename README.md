@@ -42,7 +42,7 @@ The default options are as follow:
 <pre>
 {
     autoSpinner: true,
-    html: '&lt;div style="position:absolute;top:0;left:0;width:100%;height:##winHeight##px;background:#000 url(##image##) no-repeat center center;-moz-opacity:##opacity##;filter:alpha(opacity=##opacityIE##);opacity:##opacity##;">&lt;/div>',
+    html: '&lt;div style="position:absolute;top:0;left:0;width:100%;height:##winHeight##px;background:##bgcolor## url(##image##) no-repeat center center;-moz-opacity:##opacity##;filter:alpha(opacity=##opacityIE##);opacity:##opacity##;">&lt;/div>',
     image: '',
     opacity: 0.5,
     bgcolor: '#000',
